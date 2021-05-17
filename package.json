@@ -1,0 +1,29 @@
+{
+  "name": "my-portifolio",
+  "version": "1.0.0",
+  "description": "My personal Portfolio",
+  "main": "server.js",
+  "scripts": {
+    "dev": "nodemon server.js",
+    "start": "node server.js"
+  },
+  "engines": {
+    "node": "14.x"
+  },
+  "keywords": [
+    "MERN",
+    "MongoDB",
+    "Express",
+    "React.js",
+    "Node.js",
+    "Fullstack"
+  ],
+  "author": "Airton Miguel Junior",
+  "license": "ISC",
+  "dependencies": {
+    "dotenv": "^9.0.2",
+    "express": "^4.17.1",
+    "mongoose": "^5.12.8",
+    "slug": "^5.0.1"
+  }
+}
