@@ -4,8 +4,11 @@
   "description": "My personal Portfolio",
   "main": "server.js",
   "scripts": {
-    "dev": "nodemon server.js",
-    "start": "node server.js"
+    "backend": "nodemon server.js",
+    "frontend": "yarn start --prefix frontend",
+    "dev": "concurrently \"npm run backend\" \"npm run frontend\"",
+    "start": "node server.js",
+    "heroku-postbuild": "NPM_CONFIG_PRODUCTION=false npm install --prefix frontend && npm run build --prefix frontend"
   },
   "engines": {
     "node": "14.x"
@@ -25,5 +28,8 @@
     "express": "^4.17.1",
     "mongoose": "^5.12.8",
     "slug": "^5.0.1"
+  },
+  "devDependencies": {
+    "concurrently": "^6.1.0"
   }
 }

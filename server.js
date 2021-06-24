@@ -18,12 +18,25 @@ const api = require('./backend/routes');
 // console.log("Nome do usuário no MongoDB", process.env.MONGO_USER);
 
 
-app.get('/', (req, res) => {
-    res.json({
-        'success': true
-    });
-});
+// app.get('/', (req, res) => {
+//     res.json({
+//         'success': true
+//     });
+// });
 
 app.use('/api', api);
+
+if (process.env.NODE_ENV === 'production') {
+  //Express vai entregar os assets de produção, como por exemplo o main.js ou o main.css
+  app.use(express.static('frontend/build'));
+
+
+  //Express vai entregar o index.html, se não reconhecer a rota
+  const path = require('path')
+  app.get('*', (req, res) =>{
+    res.sendFile(path.resolve(__dirname, 'frontend', 'build', 'index.html'))
+  })
+
+}
 
 app.listen(PORT);
